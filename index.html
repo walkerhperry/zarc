@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: http:; script-src 'self'">
+<title>Zarc</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="wash"></div><div id="grain"></div>
+
+<div id="shell">
+  <aside id="side">
+    <div class="topbar">
+      <button class="mark" id="mark" title="Browser menu" aria-label="Browser menu">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" aria-hidden="true">
+          <g class="sweep">
+            <path d="M5.2 16.4A8 8 0 0 1 16.4 5.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18.8 7.6A8 8 0 0 1 7.6 18.8" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+          </g>
+          <circle cx="12" cy="12" r="2.4" fill="var(--accent)"/>
+        </svg>
+      </button>
+      <button class="mini" id="profilebtn" title="Profiles">◈</button>
+      <button class="mini" id="dlbtn" title="Downloads">⤓<span class="badge" id="dlbadge" hidden>0</span></button>
+      <div class="lights">
+        <button class="close" id="w-close" title="Close" aria-label="Close window"></button>
+        <button class="min" id="w-min" title="Minimise" aria-label="Minimise window"></button>
+        <button class="max" id="w-max" title="Zoom" aria-label="Zoom window"></button>
+      </div>
+    </div>
+
+    <button class="urlbar" id="urlbar">
+      <span aria-hidden="true">⌕</span>
+      <span class="host" id="urlhost">Search or enter a site</span>
+      <span class="kbd" id="mod">⌘L</span>
+    </button>
+
+    <div class="wf" id="wf"></div>
+    <div class="rule"><span>Essentials</span></div>
+    <div class="pins" id="pins"></div>
+    <div class="rule"><span>Tabs</span></div>
+    <div id="tabs"></div>
+    <div class="dots" id="dots"></div>
+  </aside>
+  <div id="peekstrip"></div><div id="peekhint"></div>
+
+  <div id="stage">
+    <section class="pane left focus" data-side="left" id="pane-l">
+      <header class="panehead">
+        <div class="nav">
+          <button class="iconbtn" data-nav="back" title="Back">‹</button>
+          <button class="iconbtn" data-nav="forward" title="Forward">›</button>
+          <button class="iconbtn" data-nav="reload" title="Reload">⟳</button>
+        </div>
+        <img class="fav" id="l-fav" alt="" hidden>
+        <span class="t" id="l-title">New tab</span>
+        <span class="u" id="l-url"></span>
+        <span class="drag"></span>
+        <button class="iconbtn" data-act="reader" title="Reader view">¶</button>
+        <button class="iconbtn" data-act="pip" title="Picture in picture">⧈</button>
+        <button class="shield" id="shield" title="Requests stopped on this page">⛡ 0</button>
+        <button class="iconbtn" data-act="split" title="Split view">◫</button>
+      </header>
+      <div class="load" id="l-load"></div>
+      <div class="viewport" id="l-port"></div>
+    </section>
+
+    <section class="pane right" data-side="right" id="pane-r" hidden>
+      <header class="panehead">
+        <div class="nav">
+          <button class="iconbtn" data-nav="back" title="Back">‹</button>
+          <button class="iconbtn" data-nav="forward" title="Forward">›</button>
+          <button class="iconbtn" data-nav="reload" title="Reload">⟳</button>
+        </div>
+        <img class="fav" id="r-fav" alt="" hidden>
+        <span class="t" id="r-title">New tab</span>
+        <span class="u" id="r-url"></span>
+        <span class="drag"></span>
+        <button class="iconbtn" data-act="swap" title="Swap sides">⇄</button>
+        <button class="iconbtn" data-act="unsplit" title="Close split">✕</button>
+      </header>
+      <div class="load" id="r-load"></div>
+      <div class="viewport" id="r-port"></div>
+    </section>
+  </div>
+</div>
+
+<div id="views"></div>
+<div id="findbar" hidden>
+  <span aria-hidden="true">⌕</span>
+  <input id="findinput" placeholder="Find in page" spellcheck="false" autocomplete="off">
+  <span id="findcount">0/0</span>
+  <button class="iconbtn" data-find="prev" title="Previous">↑</button>
+  <button class="iconbtn" data-find="next" title="Next">↓</button>
+  <button class="iconbtn" data-find="close" title="Close">✕</button>
+</div>
+
+<div id="hint">Press <b>G</b> to glance this link</div>
+<div id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
