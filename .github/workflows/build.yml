@@ -1,8 +1,8 @@
 name: Build Zarc installers
 
 # Runs from the Actions tab — no terminal, no local toolchain.
-# Produces a .dmg for macOS, an .exe installer for Windows and an
-# AppImage plus .deb for Linux, and attaches them to a Release.
+# Produces a .dmg for macOS and an .exe installer for Windows,
+# and attaches them to a Release.
 
 on:
   workflow_dispatch:
@@ -22,8 +22,6 @@ jobs:
             name: macOS
           - os: windows-latest
             name: Windows
-          - os: ubuntu-latest
-            name: Linux
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -47,8 +45,6 @@ jobs:
           path: |
             dist/*.dmg
             dist/*.exe
-            dist/*.AppImage
-            dist/*.deb
           if-no-files-found: warn
 
   release:
